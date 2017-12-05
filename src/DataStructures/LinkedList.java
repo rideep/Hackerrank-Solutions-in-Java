@@ -2,7 +2,7 @@ package DataStructures;
 
 public class LinkedList {
 	static Node head;
-	 class Node
+	 public class Node
 	 {
 		int data;
 		Node next;
@@ -11,6 +11,7 @@ public class LinkedList {
 			next=null;
 		}
 	}
+	
 	 //function to insert at first node
 	 public void push(int new_data) {
 		 Node new_node=new Node(new_data);
@@ -151,8 +152,6 @@ public class LinkedList {
 		 else
 			 head=tempY;
 		 
-		
-		 
 		 if(prevY != null)
 			 prevY.next=tempX;
 		 else
@@ -178,20 +177,20 @@ public class LinkedList {
 		node = prev;
 		return node;
 	}
-	public void RecursiveRev(Node node)
+	public Node RecursiveRev(Node head)
 	{
-		Node first;
+		//Node first;
 		Node rest;
-		if(node==null)
-			return;
-		first=node;
-		if(first.next==null)
-			return;
-		RecursiveRev(first.next);
-		first.next.next=first;
-		first.next=null;
+		if(head==null || head.next==null)
+			return head;
+		//first=node;
+		rest=head.next;
 		
-
+		Node reverse=RecursiveRev(rest);
+		head.next.next=head;
+		head.next=null;
+		return reverse;
+		//return node;
 	}
 	 /*
 	 public void swapNodes(int x, int y)
@@ -257,6 +256,7 @@ public class LinkedList {
 		list.push(5);
 		list.push(4);
 		list.append(20);
+		
 		list.showlist();
 		/*
 		list.insertAfter(list.head, 6);
@@ -269,7 +269,9 @@ public class LinkedList {
 		//System.out.println("The list is of length::"+count);
 		//boolean Ispresent=list.RecSearch(list.head, 30);
 		//System.out.println(Ispresent);
-		head=list.reverseList(head);
+		//head=list.reverseList(head);
+		head=list.RecursiveRev(head);
+		//head=list.reverseList(head);
 		list.showlist();
 	}
 

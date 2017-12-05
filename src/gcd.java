@@ -23,8 +23,8 @@ public class gcd {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		int[] arr={16,32,96};
-		System.out.println(gcdOfarray(arr));
+		
+		System.out.println(gcd(3,13));
 	}
 
 }
